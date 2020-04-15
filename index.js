@@ -213,7 +213,7 @@ window.onresize = function() {
 
 var prevScrollTop = document.body.scrollTop;
 document.body.onscroll = function() {
-    if( document.body.scrollTop < prevScrollTop && (document.body.scrollTop + window.innerHeight) < document.body.scrollHeight )
+    if( document.body.scrollTop < prevScrollTop && (document.body.scrollTop + document.documentElement.clientHeight) < document.body.scrollHeight )
         setInfoMinHeight();
     prevScrollTop = document.body.scrollTop;
 }
@@ -222,7 +222,7 @@ document.body.onscroll = function() {
  * Reset values dependent on the screen size.
  */
 function resetScreenDependentValues() {
-    aspectRatio = window.innerWidth/window.innerHeight;
+    aspectRatio = window.innerWidth/document.documentElement.clientHeight;
     circleDiameter = window.innerWidth <= MOBILE_BREAKPOINT ? svgViewboxWidth/2 : window.innerWidth <= TABLET_BREAKPOINT ? svgViewboxWidth/4 : svgViewboxWidth/5; // If svgWidth is not 100, this might change
     circleRadiusX = circleDiameter/2;
     circleOffset = 35 * aspectRatio/2; // 35 when the aspect ratio is 2
@@ -449,7 +449,7 @@ function setInfoMinHeight() {
     var info = document.querySelector("#info");
     if( window.innerWidth <= MOBILE_BREAKPOINT ) {
         var categories = document.querySelector("#categories");
-        var minHeight = window.innerHeight - categories.getBoundingClientRect().top - 115; // same as css
+        var minHeight = document.documentElement.clientHeight - categories.getBoundingClientRect().top - 115; // same as css
         info.setAttribute("style","min-height:" + (minHeight));
     }
     else {
