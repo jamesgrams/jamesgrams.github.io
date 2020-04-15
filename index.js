@@ -213,7 +213,7 @@ window.onresize = function() {
 
 var prevScrollTop = document.body.scrollTop;
 document.body.onscroll = function() {
-    if( document.body.scrollTop < prevScrollTop )
+    if( document.body.scrollTop < prevScrollTop && (document.body.scrollTop + window.innerHeight) < document.body.scrollHeight )
         setInfoMinHeight();
     prevScrollTop = document.body.scrollTop;
 }
