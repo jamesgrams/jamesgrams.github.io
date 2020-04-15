@@ -1,6 +1,8 @@
 var NEXT_IMAGE_INTERVAL_TIME = 5000;
+var DRAW_TIME = 2000;
 var MOBILE_BREAKPOINT = 500;
 var TABLET_BREAKPOINT = 850;
+var IMAGE_FADE_TIME = 1000;
 var SECTIONS = [
     {
         "name": "Projects",
@@ -9,18 +11,21 @@ var SECTIONS = [
                 "name": "Game 103",
                 "link": "https://game103.net",
                 "subtitles": ["https://game103.net"],
+                "image": "./images/game103.png",
                 "description": "A site that hosts family-friendly games, including over thirty-five that I've created, and entertainment. By far my largest project and ongoing since 2008."
             },
             {
                 "name": "GuyStation",
                 "link": "https://github.com/jamesgrams/guystation",
                 "subtitles": ["https://github.com/jamesgrams/guystation"],
+                "image": "./images/guystation.png",
                 "description": "An emulator frontend for Ubuntu that lets you to stream your games to any device with a browser on your network. It also lets you to have multiple saves for a game, and it includes a media player and web browser."
             },
             {
                 "name": "Spokapi",
                 "link": "https://github.com/jamesgrams/spokapi",
                 "subtitles": ["https://github.com/jamesgrams/spokapi"],
+                "image": "./images/spokapi.png",
                 "description": "Easily watch TV through Puppeteer. This program allows you to easily watch live sports and shows that you have access to with your cable provider login."
             },
             {
@@ -38,24 +43,28 @@ var SECTIONS = [
                 "name": "IT Systems Administrator",
                 "link": "https://paviliondevelopment.com/",
                 "subtitles": ["2020-", "Pavilion Development"],
+                "image": "./images/pavilion.png",
                 "description": "\"Everything computers\" man for a small business. Built a pre-opening website for the Shepherd Hotel. Built various tools with Node.js to help with everything from creating displays of construction sites to controlling Crestron devices and Mitel phones. Worked with employees on computer and phone problems." 
             },
             {
                 "name": "Web Developer",
                 "link": "https://www.christianbook.com",
                 "subtitles": ["2017-2019", "Christianbook.com"],
+                "image": "./images/christianbook.png",
                 "description": "Worked on Full Stack projects in SQL/Perl/HTML/JavaScript (jQuery)/CSS: Implemented logging tools to detect fraud and took preventitive measures to stop it. Responsible for reworking the design of the mobile product detail page. Completely redesigned the email preferences system. Made several applications responsive. Created a feature to buy another item with one click after checkout. Additionally worked on Java Web Services: Migrated search from Endeca to Elasticsearch. Altered several applications to use the Jersey Framework." 
             },
             {
                 "name": "Student IT Helpdesk Worker",
                 "link": "https://www.gordon.edu",
                 "subtitles": ["2013-2017", "Gordon College"],
+                "image": "./images/gordon.png",
                 "description": "Troubleshot faculty, staff, and students' computer and technology problems in person, via email, and over the phone. Managed equipment rentals. Developed School's computer inventory system. Promoted to Helpdesk Student Manager for my senior year." 
             },
             {
                 "name": "CS Teaching Assistant",
                 "link": "https://www.gordon.edu",
                 "subtitles": ["2014-2016", "Gordon College"],
+                "image": "./images/gordon.png",
                 "description": "TA'd Object-Oriented Software Development, Data Structures and Algorithms, Introduction to Programming, and Software Systems. This involved helping students with weekly labs and providing help sessions for their major projects." 
             }
         ]
@@ -66,10 +75,12 @@ var SECTIONS = [
             {
                 "name": "Gordon College",
                 "subtitles": ["Graduated 2017", "Summa Cum Luade", "Bachelor of Science in Computer Science"],
+                "image": "./images/gordon.png",
                 "description": "Revelant courses include Object-Oriented Software Development, Data Structures and Algorithms, Internet Programming, Mobile Computing, Parallel and High Performance Computing, Numerical Analysis, Models of Computation, and Database Systems."
             },
             {
                 "name": "Ardrey Kell High School",
+                "image": "./images/ak.png",
                 "subtitles": ["Graduated 2013"]
             }
         ]
@@ -208,14 +219,18 @@ window.onresize = function() {
     resetScreenDependentValues();
     document.querySelector("svg").innerHTML = "";
     createName( true );
-    createImage( document.querySelector(".images") );
+    var img = document.querySelector(".images");
+    if( img ) createImage( img );
 }
 
-var prevScrollTop = document.body.scrollTop;
+var prevScrollTop = document.documentElement.scrollTop;
 document.body.onscroll = function() {
-    if( document.body.scrollTop < prevScrollTop && (document.body.scrollTop + document.documentElement.clientHeight) < document.body.scrollHeight )
-        setInfoMinHeight();
-    prevScrollTop = document.body.scrollTop;
+    if( (document.documentElement.scrollTop + window.innerHeight) < document.documentElement.scrollHeight ) {
+        if( document.documentElement.scrollTop < prevScrollTop ) {
+            setInfoMinHeight();
+        } 
+    }
+    prevScrollTop = document.documentElement.scrollTop;
 }
 
 /**
@@ -280,7 +295,7 @@ function createImage( img ) {
 
     var diameter = circleDiameter * widthConverter;
 
-    curSizePositionStyle = "width: " + diameter + ";height: " + diameter + ";left:" + (lastPointAbsoluteX - circleRadiusX*2*widthConverter) + "px;" + "top:" + (lastPointAbsoluteY - circleRadiusY*heightConverter -circleOffset/2*heightConverter);
+    curSizePositionStyle = "width: " + diameter + "px;height: " + diameter + "px;left:" + (lastPointAbsoluteX - circleRadiusX*2*widthConverter) + "px;" + "top:" + (lastPointAbsoluteY - circleRadiusY*heightConverter -circleOffset/2*heightConverter) + "px";
 
     // Set the image style
     img.setAttribute("style", "background-image:url('./images/james"+currentImage+".jpg');" + curSizePositionStyle);
@@ -291,7 +306,7 @@ function createImage( img ) {
         setTimeout( function() {
             img.classList.add("rendered");
             img.onclick = clickNextImg;
-        }, 2000 ); // make sure this matches the css for signature time
+        }, DRAW_TIME ); // make sure this matches the css for signature time
     }
     else {
         img.classList.add("rendered");
@@ -301,18 +316,20 @@ function createImage( img ) {
     }
 
     clearInterval(imageInterval);
-    // update the image
-    imageInterval = setInterval( nextImg, NEXT_IMAGE_INTERVAL_TIME );
+
+    setTimeout( function() {
+        // update the image
+        imageInterval = setInterval( nextImg, NEXT_IMAGE_INTERVAL_TIME );
+    }, elementAlreadyExists ? 0 : DRAW_TIME );
 }
 
 /**
  * Occurs upon clicking the image to move to the next one.
  */
 function clickNextImg() {
-    this.onclick = function() {};
+    this.onclick = function() { return null };
     clearInterval(imageInterval);
     nextImg();
-    imageInterval = setInterval( nextImg, NEXT_IMAGE_INTERVAL_TIME );
 }
 
 /**
@@ -324,17 +341,25 @@ function nextImg() {
     currentImage ++;
     if( currentImage > totalImages ) currentImage = 1;
 
-    img.classList.add("hidden");
-    var newImg = document.createElement("div");
-    newImg.classList.add("images");
-    newImg.classList.add("rendered");
-    newImg.setAttribute("style", "animation-delay: 0s;background-image:url('./images/james"+currentImage+".jpg');" + curSizePositionStyle);
-    document.querySelector("header").appendChild(newImg);
+    clearInterval(imageInterval);
 
-    setTimeout( function() {
-        img.parentNode.removeChild(img);
-        newImg.onclick = clickNextImg;
-    }, 1000 ); // make sure this matches the css for transition time
+    var preloader = document.createElement("img");
+    preloader.src = './images/james'+currentImage+'.jpg';
+    preloader.onload = function() {
+        imageInterval = setInterval(nextImg, NEXT_IMAGE_INTERVAL_TIME);
+
+        img.classList.add("hidden");
+        var newImg = document.createElement("div");
+        newImg.classList.add("images");
+        newImg.classList.add("rendered");
+        newImg.setAttribute("style", "animation-delay: 0s;background-image:url('./images/james"+currentImage+".jpg');" + curSizePositionStyle);
+        document.querySelector("header").appendChild(newImg);
+
+        setTimeout( function() {
+            img.parentNode.removeChild(img);
+            newImg.onclick = clickNextImg;
+        }, IMAGE_FADE_TIME ); // make sure this matches the css for transition time
+    }
 }
 
 /**
@@ -369,7 +394,7 @@ function createResume() {
         category.onmouseover = function() {
             if( this.classList.contains("selected") ) return;
             setInfoMinHeight();
-
+            
             for( var j=0; j<timeouts.length; j++ ) clearTimeout(timeouts[j]);
             timeouts = [];
             var otherElements = document.querySelectorAll("#categories li:not(#" + this.getAttribute("id") + ")");
@@ -406,6 +431,12 @@ function createResume() {
                 itemElement.setAttribute("rel", "noopener");
             }
             itemElement.classList.add("item");
+
+            if( item.image ) {
+                var itemImage = document.createElement("img");
+                itemImage.src = item.image;
+                itemElement.appendChild(itemImage);
+            }
 
             var itemTitle = document.createElement("div");
             itemTitle.classList.add("item-title");
@@ -444,13 +475,15 @@ function createResume() {
 /**
  * Try not to jump around the info when items get too short.
  * Set this to run when changing categories, or when scrolling UP.
+ * @param {number} height - The height to use in this situation.
  */
 function setInfoMinHeight() {
     var info = document.querySelector("#info");
     if( window.innerWidth <= MOBILE_BREAKPOINT ) {
         var categories = document.querySelector("#categories");
-        var minHeight = document.documentElement.clientHeight - categories.getBoundingClientRect().top - 115; // same as css
-        info.setAttribute("style","min-height:" + (minHeight));
+        // innerheight prevents scroll when calling this function when switching categories
+        var minHeight = window.innerHeight - categories.getBoundingClientRect().top - 115; // same as css
+        info.setAttribute("style","min-height:" + minHeight.toString() + "px");
     }
     else {
         info.removeAttribute("style");
