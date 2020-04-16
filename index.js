@@ -1,5 +1,6 @@
 var NEXT_IMAGE_INTERVAL_TIME = 5000;
 var DRAW_TIME = 2000;
+var TEXT_TRANSITION_TIME = 300;
 var MOBILE_BREAKPOINT = 500;
 var TABLET_BREAKPOINT = 850;
 var IMAGE_FADE_TIME = 1000;
@@ -106,7 +107,7 @@ var SECTIONS = [
             {
                 "name": "Web Development",
                 "subtitles": [],
-                "description": "I've been running Game 103 since 2008. I love to learn about the web and put what I learn into practive."
+                "description": "I've been running Game 103 since 2008. I love to learn about the web and put what I learn into practice."
             },
             {
                 "name": "Game Development",
@@ -156,7 +157,7 @@ var SECTIONS = [
             {
                 "name": "Wenham, MA, USA",
                 "link": "https://www.google.com/maps/place/Wenham, MA, USA",
-                "subtitles": ["2003-2017"]
+                "subtitles": ["2013-2017"]
             },
             {
                 "name": "Hamilton, MA, USA",
@@ -337,6 +338,7 @@ function clickNextImg() {
  */
 function nextImg() {
     var img = document.querySelector(".images");
+    img.onclick = function() { return null };
 
     currentImage ++;
     if( currentImage > totalImages ) currentImage = 1;
@@ -404,7 +406,7 @@ function createResume() {
                 otherElements[j].classList.remove("selected");
                 timeouts.push( setTimeout(function(oE) { return function() {
                     oE.classList.remove("block");
-                } }(otherElementsInfo), 500) );
+                } }(otherElementsInfo), TEXT_TRANSITION_TIME) );
             }
             var infoElement = document.querySelector("#" + this.getAttribute("id") + "-info");
             infoElement.classList.add("block");
