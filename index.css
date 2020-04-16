@@ -283,4 +283,9 @@ svg {
     #placeslived-info {
         width: calc(100% - 40px);
     }
+
+    #placeslived-info > .item > .item-description {
+        padding-bottom: 150%;
+    }
+    
 }
