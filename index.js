@@ -16,6 +16,27 @@ var SECTIONS = [
                 "description": "A site that hosts family-friendly games, including over thirty-five that I've created, and entertainment. By far my largest project and ongoing since 2008."
             },
             {
+                "name": "Shepherd Hotels",
+                "link": "https://shepherdhotels.com",
+                "subtitles": ["https://shepherdhotels.com"],
+                "image": "./images/shepherdhotels.png",
+                "description": "The pre-opening website for the Shepherd Hotel, a hotel that aims to hire individuals with disabilities."
+            },
+            {
+                "name": "Christianbook Finder",
+                "link": "https://www.christianbook.com/apps/finder?type=Homeschool",
+                "subtitles": ["https://www.christianbook.com/apps/finder?type=Homeschool"],
+                "image": "./images/christianbook.png",
+                "description": "The finder application for Christianbook.com designed to allow for heavy customization of search. I reworked this application to be responsive."
+            },
+            {
+                "name": "Racecourse",
+                "link": "https://github.com/jamesgrams/racecourse",
+                "subtitles": ["https://github.com/jamesgrams/racecouse"],
+                "image": "./images/racecourse.png",
+                "description": "A lightweight course manager that makes it very easy for teachers to get content to their students."
+            },
+            {
                 "name": "GuyStation",
                 "link": "https://github.com/jamesgrams/guystation",
                 "subtitles": ["https://github.com/jamesgrams/guystation"],
@@ -23,9 +44,16 @@ var SECTIONS = [
                 "description": "An emulator frontend for Ubuntu that lets you to stream your games to any device with a browser on your network. It also lets you to have multiple saves for a game, and it includes a media player and web browser."
             },
             {
+                "name": "IPAide",
+                "link": "https://play.google.com/store/apps/details?id=net.game103.ipahelper",
+                "subtitles": ["https://play.google.com/store/apps/details?id=net.game103.ipahelper"],
+                "image": "./images/ipaide.png",
+                "description": "An Android app to help linguistics students learn the distinctive features of phonemes. It uses the standard IPA symbols for over one hundred phonemes."
+            },
+            {
                 "name": "Spokapi",
-                "link": "https://github.com/jamesgrams/spokapi",
-                "subtitles": ["https://github.com/jamesgrams/spokapi"],
+                "link": "https://github.com/jamesgrams/animals-of-the-bible",
+                "subtitles": ["https://github.com/jamesgrams/animals-of-the-bible"],
                 "image": "./images/spokapi.png",
                 "description": "Easily watch TV through Puppeteer. This program allows you to easily watch live sports and shows that you have access to with your cable provider login."
             },
