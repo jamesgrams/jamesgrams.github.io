@@ -163,9 +163,54 @@ var SECTIONS = [
         "name": "Places Lived",
         "items": [
             {
-                "name": "",
-                "subtitles": [],
-                "description": "<iframe src='https://www.google.com/maps/d/embed?mid=1KivutRQtV1lx-5Doa5hsERaJut9Cb_j4'></iframe>"
+                "name": "Charlotte, NC, USA",
+                "link": "https://www.google.com/maps/place/Charlotte, NC, USA",
+                "subtitles": ["1995-1997"]
+            },
+            {
+                "name": "Osijek, Croatia",
+                "link": "https://www.google.com/maps/place/Osijek, Croatia",
+                "subtitles": ["1997-1999"]
+            },
+            {
+                "name": "Freeland, England",
+                "link": "https://www.google.com/maps/place/Freeland, England",
+                "subtitles": ["1999-2005"]
+            },
+            {
+                "name": "Charlotte, NC, USA",
+                "link": "https://www.google.com/maps/place/Charlotte, NC, USA",
+                "subtitles": ["2005-2013"]
+            },
+            {
+                "name": "Wenham, MA, USA",
+                "link": "https://www.google.com/maps/place/Wenham, MA, USA",
+                "subtitles": ["2003-2017"]
+            },
+            {
+                "name": "Hamilton, MA, USA",
+                "link": "https://www.google.com/maps/place/Hamilton, MA, USA",
+                "subtitles": ["2017"]
+            },
+            {
+                "name": "Merrimac, MA, USA",
+                "link": "https://www.google.com/maps/place/Merrimac, MA, USA",
+                "subtitles": ["2017"]
+            },
+            {
+                "name": "Beverly, MA, USA",
+                "link": "https://www.google.com/maps/place/Beverly, MA, USA",
+                "subtitles": ["2017-2018"]
+            },
+            {
+                "name": "Merrimac, MA, USA",
+                "link": "https://www.google.com/maps/place/Merrimac, MA, USA",
+                "subtitles": ["2018-2020"]
+            },
+            {
+                "name": "Charlotte, NC, USA",
+                "link": "https://www.google.com/maps/place/Charlotte, NC, USA",
+                "subtitles": ["2020-"]
             }
         ]
     }
