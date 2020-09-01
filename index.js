@@ -23,6 +23,13 @@ var SECTIONS = [
                 "description": "The pre-opening website for the Shepherd Hotel, a hotel that aims to hire individuals with disabilities."
             },
             {
+                "name": "Making Do Recipes",
+                "link": "https://makingdorecipes.com",
+                "subtitles": ["https://makingdorecipes.com"],
+                "image": "./images/makingdorecipes.png",
+                "description": "A recipe sharing platform for people with restrictive allergies. Allows users to search for recipes by listing what ingredients they can or can not have."
+            },
+            {
                 "name": "Christianbook Finder",
                 "link": "https://www.christianbook.com/apps/finder?type=Homeschool",
                 "subtitles": ["https://www.christianbook.com/apps/finder?type=Homeschool"],
@@ -120,7 +127,7 @@ var SECTIONS = [
             {
                 "name": "Known Computer Languages",
                 "subtitles": [],
-                "description": "HTML, CSS, JavaScript (Node.js, jQuery), Java (Tomcat, Jersey), Perl, PHP, Python, SQL, Elasticsearch, ActionScript 2 & 3"
+                "description": "HTML, CSS, JavaScript (Node.js, jQuery, React), Java (Tomcat, Jersey), Perl, PHP, Python, SQL, Elasticsearch, ActionScript 2 & 3"
             },
             {
                 "name": "Familiar Computer Languages",
