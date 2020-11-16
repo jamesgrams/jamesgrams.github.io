@@ -46,7 +46,7 @@ var SECTIONS = [
             {
                 "name": "GuyStation",
                 "link": "https://github.com/jamesgrams/guystation",
-                "subtitles": ["https://github.com/jamesgrams/guystation"],
+                "subtitles": ["https://guystation.net"],
                 "image": "./images/guystation.png",
                 "description": "An emulator frontend for Ubuntu that lets you to stream your games to any device with a browser on your network. It also lets you to have multiple saves for a game, and it includes a media player and web browser."
             },
