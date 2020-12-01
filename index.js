@@ -45,7 +45,7 @@ var SECTIONS = [
             },
             {
                 "name": "GuyStation",
-                "link": "https://github.com/jamesgrams/guystation",
+                "link": "https://guystation.net",
                 "subtitles": ["https://guystation.net"],
                 "image": "./images/guystation.png",
                 "description": "An emulator frontend for Ubuntu that lets you to stream your games to any device with a browser on your network. It also lets you to have multiple saves for a game, and it includes a media player and web browser."
@@ -77,7 +77,7 @@ var SECTIONS = [
         "items": [
             {
                 "name": "IT Systems Administrator",
-                "link": "https://paviliondevelopment.com/",
+                "link": "https://www.paviliondevelopment.com/",
                 "subtitles": ["2020-", "Pavilion Development"],
                 "image": "./images/pavilion.png",
                 "description": "\"Everything computers\" man for a small business. Built a pre-opening website for the Shepherd Hotel. Built various tools with Node.js to help with everything from creating displays of construction sites to controlling Crestron devices and Mitel phones. Worked with employees on computer and phone problems." 
@@ -110,7 +110,7 @@ var SECTIONS = [
         "items": [
             {
                 "name": "Gordon College",
-                "subtitles": ["Graduated 2017", "Summa Cum Luade", "Bachelor of Science in Computer Science"],
+                "subtitles": ["Graduated 2017", "Summa Cum Laude", "Bachelor of Science in Computer Science"],
                 "image": "./images/gordon.png",
                 "description": "Revelant courses include Object-Oriented Software Development, Data Structures and Algorithms, Internet Programming, Mobile Computing, Parallel and High Performance Computing, Numerical Analysis, Models of Computation, and Database Systems."
             },
@@ -257,6 +257,28 @@ window.onresize = function() {
     createName( true );
     var img = document.querySelector(".images");
     if( img ) createImage( img );
+    setBorderHeight();
+}
+
+/**
+ * Set the border height
+ */
+function setBorderHeight() {
+    if( window.innerWidth <= MOBILE_BREAKPOINT ) {
+        var visibleInfo = document.querySelector("#info .visible");
+        var info = document.querySelector("#info");
+        var height = document.querySelector("#resume").offsetTop + visibleInfo.offsetHeight + visibleInfo.offsetTop + 20;
+        var altHeight = document.querySelector("#resume").offsetTop + info.offsetHeight + info.offsetTop + 100;
+        height = Math.max(height, altHeight);
+        document.querySelector("#fancy-border-bottom").setAttribute("style","top: calc("+height+"px - 20px);");
+        document.querySelector("#fancy-border-left").setAttribute("style","width: "+height+"px;");
+        document.querySelector("#fancy-border-right").setAttribute("style","width: "+height+"px;top: "+height+"px;");
+    }
+    else {
+        document.querySelector("#fancy-border-bottom").removeAttribute("style");
+        document.querySelector("#fancy-border-left").removeAttribute("style");
+        document.querySelector("#fancy-border-right").removeAttribute("style");
+    }
 }
 
 var prevScrollTop = document.documentElement.scrollTop;
@@ -266,7 +288,7 @@ document.body.onscroll = function() {
             setInfoMinHeight();
         } 
     }
-    prevScrollTop = document.documentElement.scrollTop;
+    prevScrollTop = document.documentElement.scrollTop;    
 }
 
 /**
@@ -453,6 +475,8 @@ function createResume() {
             if( window.innerWidth > MOBILE_BREAKPOINT ) {
                 document.querySelector("#info").scrollTo({ top: 0, behavior: 'smooth' });
             }
+
+            setTimeout( setInfoMinHeight, 100 );
         }
 
         // create the info section
@@ -507,6 +531,7 @@ function createResume() {
     setTimeout( function() {
         resume.classList.add("rendered");
         document.querySelector("#icons").classList.add("rendered");
+        setBorderHeight();
     }, 2250 ); // make sure this matches the css for signature time +  a little extra to distinguish from image
 }
 
@@ -518,10 +543,15 @@ function createResume() {
 function setInfoMinHeight() {
     var info = document.querySelector("#info");
     if( window.innerWidth <= MOBILE_BREAKPOINT ) {
-        var categories = document.querySelector("#categories");
         // innerheight prevents scroll when calling this function when switching categories
-        var minHeight = window.innerHeight - categories.getBoundingClientRect().top - 115; // same as css
+        var minHeight = window.innerHeight - info.getBoundingClientRect().top - 100; // same as css
         info.setAttribute("style","min-height:" + minHeight.toString() + "px");
+        try {
+            setBorderHeight();
+        }
+        catch(err) {
+
+        }
     }
     else {
         info.removeAttribute("style");
