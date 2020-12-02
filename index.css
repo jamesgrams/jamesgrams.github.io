@@ -179,6 +179,7 @@ svg {
     position: absolute;
     pointer-events: none;
     user-select: none;
+    width: 100%;
 }
 
 #info > div.block {
@@ -196,6 +197,7 @@ svg {
     text-decoration: none;
     color: black;
     display: block;
+    clear: both;
 }
 
 #info .item img {
@@ -285,6 +287,10 @@ svg {
         position: static;
         width: 100%;
         margin-bottom: 100px;
+    }
+
+    #info > div {
+        width: calc(100% - 40px);
     }
 
     #projects-info {

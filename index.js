@@ -165,51 +165,67 @@ var SECTIONS = [
             {
                 "name": "Charlotte, NC, USA",
                 "link": "https://www.google.com/maps/place/Charlotte, NC, USA",
+                "image": "./images/charlotte.jpg",
                 "subtitles": ["1995-1997"]
             },
             {
                 "name": "Osijek, Croatia",
                 "link": "https://www.google.com/maps/place/Osijek, Croatia",
+                "image": "./images/osijek.jpg",
                 "subtitles": ["1997-1999"]
+            },
+            {
+                "name": "Bladon, England",
+                "link": "https://www.google.com/maps/place/Bladon, England",
+                "image": "./images/bladon.jpg",
+                "subtitles": ["1999-2000"]
             },
             {
                 "name": "Freeland, England",
                 "link": "https://www.google.com/maps/place/Freeland, England",
-                "subtitles": ["1999-2005"]
+                "image": "./images/freeland.jpg",
+                "subtitles": ["2000-2005"]
             },
             {
                 "name": "Charlotte, NC, USA",
                 "link": "https://www.google.com/maps/place/Charlotte, NC, USA",
+                "image": "./images/charlotte.jpg",
                 "subtitles": ["2005-2013"]
             },
             {
                 "name": "Wenham, MA, USA",
                 "link": "https://www.google.com/maps/place/Wenham, MA, USA",
+                "image": "./images/wenham.jpg",
                 "subtitles": ["2003-2017"]
             },
             {
                 "name": "Hamilton, MA, USA",
                 "link": "https://www.google.com/maps/place/Hamilton, MA, USA",
+                "image": "./images/hamilton.jpg",
                 "subtitles": ["2017"]
             },
             {
                 "name": "Merrimac, MA, USA",
                 "link": "https://www.google.com/maps/place/Merrimac, MA, USA",
+                "image": "./images/merrimac.jpg",
                 "subtitles": ["2017"]
             },
             {
                 "name": "Beverly, MA, USA",
                 "link": "https://www.google.com/maps/place/Beverly, MA, USA",
+                "image": "./images/beverly.jpg",
                 "subtitles": ["2017-2018"]
             },
             {
                 "name": "Merrimac, MA, USA",
                 "link": "https://www.google.com/maps/place/Merrimac, MA, USA",
+                "image": "./images/merrimac.jpg",
                 "subtitles": ["2018-2020"]
             },
             {
                 "name": "Charlotte, NC, USA",
                 "link": "https://www.google.com/maps/place/Charlotte, NC, USA",
+                "image": "./images/charlotte.jpg",
                 "subtitles": ["2020-"]
             }
         ]
