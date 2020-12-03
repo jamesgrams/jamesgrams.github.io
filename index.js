@@ -196,7 +196,7 @@ var SECTIONS = [
                 "name": "Wenham, MA, USA",
                 "link": "https://www.google.com/maps/place/Wenham, MA, USA",
                 "image": "./images/wenham.jpg",
-                "subtitles": ["2003-2017"]
+                "subtitles": ["2013-2017"]
             },
             {
                 "name": "Hamilton, MA, USA",
