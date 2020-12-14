@@ -23,6 +23,13 @@ var SECTIONS = [
                 "description": "The pre-opening website for the Shepherd Hotel, a hotel that aims to hire individuals with disabilities."
             },
             {
+                "name": "Delish Sisters",
+                "link": "https://delishsisters.com",
+                "subtitles": ["https://delishsisters.com"],
+                "image": "./images/delishsisters.png",
+                "description": "The website for the Delish Sisters, a restaurant to be located within the Shepherd Hotel."
+            },
+            {
                 "name": "Making Do Recipes",
                 "link": "https://makingdorecipes.com",
                 "subtitles": ["https://makingdorecipes.com"],
@@ -49,6 +56,13 @@ var SECTIONS = [
                 "subtitles": ["https://github.com/jamesgrams/racecouse"],
                 "image": "./images/racecourse.png",
                 "description": "A lightweight course manager that makes it very easy for teachers to get content to their students."
+            },
+            {
+                "name": "Budgeteer",
+                "link": "https://github.com/jamesgrams/budgeteer",
+                "subtitles": ["https://github.com/jamesgrams/budgeteer"],
+                "image": "./images/budgeteer.png",
+                "description": "A themed budgeting application that automatically registers purchases and is designed to be run on a local network."
             },
             {
                 "name": "Spokapi",
