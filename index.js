@@ -259,7 +259,7 @@ var circleOffset;
 var circleRadiusY;
 resetScreenDependentValues();
 
-var totalImages = 14;
+var totalImages = 15;
 var currentImage = 1;
 var imageInterval = null;
 var curSizePositionStyle = "";
