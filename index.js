@@ -243,6 +243,18 @@ var SECTIONS = [
                 "subtitles": ["2020-"]
             }
         ]
+    },
+    {
+        "name": "Company",
+        "items": [
+            {
+                "name": "Evenlode Development",
+                "link": "https://evenlode.dev",
+                "image": "./images/evenlode.png",
+                "subtitles": ["https://evenlode.dev"],
+                "description": "Evenlode Development is my brother and I's company. We can be hired to assist with just about anything tech-related from software development to hardware setup in your home. See our website for more details and how to contact us."
+            }
+        ]
     }
 ];
 
