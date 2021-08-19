@@ -16,32 +16,11 @@ var SECTIONS = [
                 "description": "A site that hosts family-friendly games, including over thirty-five that I've created, and entertainment. By far my largest project and ongoing since 2008."
             },
             {
-                "name": "Shepherd Hotels",
-                "link": "https://shepherdhotels.com",
-                "subtitles": ["https://shepherdhotels.com"],
-                "image": "./images/shepherdhotels.png",
-                "description": "The pre-opening website for the Shepherd Hotel, a hotel that aims to hire individuals with disabilities."
-            },
-            {
-                "name": "Delish Sisters",
-                "link": "https://delishsisters.com",
-                "subtitles": ["https://delishsisters.com"],
-                "image": "./images/delishsisters.png",
-                "description": "The website for the Delish Sisters, a restaurant to be located within the Shepherd Hotel."
-            },
-            {
                 "name": "Making Do Recipes",
                 "link": "https://makingdorecipes.com",
                 "subtitles": ["https://makingdorecipes.com"],
                 "image": "./images/makingdorecipes.png",
                 "description": "A recipe sharing platform for people with restrictive allergies. Allows users to search for recipes by listing what ingredients they can or can not have."
-            },
-            {
-                "name": "Christianbook Finder",
-                "link": "https://www.christianbook.com/apps/finder?type=Homeschool",
-                "subtitles": ["https://www.christianbook.com/apps/finder?type=Homeschool"],
-                "image": "./images/christianbook.png",
-                "description": "The finder application for Christianbook.com designed to allow for heavy customization of search. I reworked this application to be responsive."
             },
             {
                 "name": "GuyStation",
@@ -56,13 +35,6 @@ var SECTIONS = [
                 "subtitles": ["https://github.com/jamesgrams/racecouse"],
                 "image": "./images/racecourse.png",
                 "description": "A lightweight course manager that makes it very easy for teachers to get content to their students."
-            },
-            {
-                "name": "Budgeteer",
-                "link": "https://github.com/jamesgrams/budgeteer",
-                "subtitles": ["https://github.com/jamesgrams/budgeteer"],
-                "image": "./images/budgeteer.png",
-                "description": "A themed budgeting application that automatically registers purchases and is designed to be run on a local network."
             },
             {
                 "name": "Spokapi",
