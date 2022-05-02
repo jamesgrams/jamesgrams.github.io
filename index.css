@@ -62,7 +62,7 @@ main {
     margin-right: 20px;
     padding-right: 20px;
     min-width: 150px;
-    width: 150px;
+    width: 190px;
 }
 
 #categories li {
@@ -111,12 +111,15 @@ main {
     user-select: none;
     width: 100%;
     position: absolute;
-    padding: 0 20px;
     box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-right: 10px;
 }
 
 #info > div.block {
-    display: block;
+    display: grid;
 }
 
 #info > div.visible {
@@ -131,6 +134,10 @@ main {
     color: black;
     display: block;
     clear: both;
+    border: 2px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 5px 5px #123478;
 }
 
 #info .item img {
@@ -138,10 +145,6 @@ main {
     float: left;
     margin-right: 20px;
     margin-bottom: 10px;
-}
-
-#info .item:first-child {
-    padding-top: 0;
 }
 
 #info .item > .item-title {
@@ -160,31 +163,11 @@ main {
     margin-top: 5px;
 }
 
-/*@media only screen and (max-width: 850px) {
-    #resume {
-        top: 35%;
-        width: 60%;
-        height: calc( 65% - 40px );
+@media only screen and (max-width: 800px) {
+    #info > div {
+        grid-template-columns: 1fr;
     }
-
-    #categories {
-        width: 100%;
-        height: initial;
-    }
-
-    #categories li {
-        padding: 7px;
-        padding-top: 7px !important;
-        display: inline-block;
-    }
-
-    #info {
-        width: calc(95% - 40px);
-        left: 27px;
-        top: 115px; /* 20 padding for resume + 80 height for links + 15 margin */
-        /*height: calc(100% - 131px);
-    }
-}*/
+}
 
 @media only screen and (max-width: 600px) {
     
