@@ -174,7 +174,8 @@ main {
 
 @media only screen and (max-width: 800px) {
     #info > div {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         padding-right: 10px !important;
     }
 }
