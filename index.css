@@ -4,63 +4,35 @@
 
 body {
     padding: 0;
-    margin: 0;
+    margin: 0 20px;
     position: fixed;
-    width: 100%;
+    width: calc(100% - 40px);
     height: 100%;
-    background-color: #f0e9c7;
-    background: url("images/background.jpg");
-    
+    background-color: white;
+    font-family: "Josefin Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
-#fancy-border-left, #fancy-border-right, #fancy-border-top, #fancy-border-bottom {
-    content: '';
-    position:absolute;
-    transform-origin: top left;
-    border-image: url("images/border-nobg.png") 0 0 150 repeat;
-    opacity: 70%;
+header {
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
     border-bottom: 20px solid;
-}
-
-#fancy-border-left {
-    width: 100vh;
-    transform: rotate(90deg);
-    left: 20px;
-    top: 0;
-}
-
-#fancy-border-top {
-    width: calc(100vw - 40px);
-    transform: rotate(180deg);
-    left: calc(100vw - 20px);
-    top: 20px;
-}
-
-#fancy-border-right {
-    width: 100vh;
-    transform: rotate(270deg);
-    left: calc(100vw - 20px);
-    top: 100vh;
-}
-
-#fancy-border-bottom {
-    width: calc(100vw - 40px);
-    left: 20px;
-    top: calc(100vh - 20px);
+    border-image: url("images/border-nobg.png") 0 0 150 repeat;
+    display: inline-block;
 }
 
 #icons {
     position: absolute;
-    top: 30px;
-    right: 30px;
-    opacity: 0;
+    top: 20px;
+    right: 0px;
+    opacity: 1;
     transition: opacity 1s;
 }
-
-#icons.rendered {
-    opacity: 1;
-}
-
 
 #icons a {
     text-decoration: none;
@@ -69,52 +41,13 @@ body {
     margin-left: 5px;
 }
 
-path {
-    stroke-dasharray: 3637; /* path.getTotalLength() */
-    stroke-dashoffset: 3637;
-    animation: dash 2s linear;
-    animation-fill-mode: forwards;
-    fill: none;
-    stroke-width: 4;
-    stroke: black;
-}
-
-.images {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0;
-    background-size: cover;
-    transition: opacity 1s;
-    cursor: pointer;
-}
-
-.images.rendered {
-    opacity: 1;
-    animation: none;
-    animation-delay: 0s;
-}
-
-.images.hidden {
-    z-index: 2;
-    opacity: 0;
-}
-
-svg {
-    position: absolute;
-    z-index: 100;
-    overflow: visible;
-    user-select: none;
-    pointer-events: none;
+main {
+    flex-grow: 1;
 }
 
 #resume {
-    position: absolute;
-    top: 40%;
-    left: 3%;
-    font-family: "Caudex", sans-serif;
-    padding: 20px;
-    width: 60%;
-    height: calc( 60% - 60px );
+    display: flex;
+    height: 100%;
     opacity: 0;
     transition: opacity 1s;
 }
@@ -126,11 +59,10 @@ svg {
 #categories {
     padding: 0;
     margin: 0;
-    width: calc(25% - 20px);
-    display: inline-block;
-    height: 100%;
-    overflow: auto;
     margin-right: 20px;
+    padding-right: 20px;
+    min-width: 150px;
+    width: 150px;
 }
 
 #categories li {
@@ -140,6 +72,7 @@ svg {
     cursor: pointer;
     display: table;
     font-weight: bold;
+    padding-left: 0;
 }
 
 #categories li:first-child {
@@ -164,22 +97,22 @@ svg {
 }
 
 #info {
-    display: inline-block;
-    width: 75%;
-    vertical-align: top;
-    height: calc(100% - 40px);
+    flex-grow: 1;
+    position: relative;
+    height: 100%;
     overflow: auto;
-    position: absolute;
 }
 
 #info > div {
     display: none;
     opacity: 0;
     transition: opacity 0.3s;
-    position: absolute;
     pointer-events: none;
     user-select: none;
     width: 100%;
+    position: absolute;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 #info > div.block {
@@ -226,24 +159,8 @@ svg {
     font-size: 15px;
     margin-top: 5px;
 }
-  
-@keyframes dash {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
 
-@media only screen and (max-width: 1000px) {
-    #categories {
-        width: calc(30% - 20px);
-    }
-
-    #info {
-        width: 70%;
-    }
-}
-
-@media only screen and (max-width: 850px) {
+/*@media only screen and (max-width: 850px) {
     #resume {
         top: 35%;
         width: 60%;
@@ -265,44 +182,42 @@ svg {
         width: calc(95% - 40px);
         left: 27px;
         top: 115px; /* 20 padding for resume + 80 height for links + 15 margin */
-        height: calc(100% - 131px);
+        /*height: calc(100% - 131px);
     }
-}
+}*/
 
-@media only screen and (max-width: 500px) {
-    body {
-        position: static;
-        background-size: 300vw 2500px;
-    }
-
+@media only screen and (max-width: 600px) {
+    
     #resume {
-        top: 75%;
-        width: calc(93% - 40px);
-        height: initial;
-        padding-bottom: 0;
-    }
-
-    #info {
-        margin-top: 15px;
-        position: static;
-        width: 100%;
-        margin-bottom: 100px;
-    }
-
-    #info > div {
-        width: calc(100% - 40px);
-    }
-
-    #projects-info {
-        width: calc(100% - 40px);
+        flex-direction: column;
     }
 
     #categories {
+        width: 100%;
+        height: initial;
         text-align: center;
+        padding: 0;
+        margin: 0;
     }
 
-    #placeslived-info {
-        width: calc(100% - 40px);
+    #categories li {
+        padding: 7px;
+        padding-top: 7px !important;
+        display: inline-block;
+    }
+
+    #info {
+        margin-top: 20px;
+        position: static;
+        width: 100%;
+        height: 0;
+    }
+
+    #info > div {
+        height: 100%;
+        overflow: auto;
+        position: static;
+        padding: 0%;
     }
 
     #placeslived-info > .item > .item-description {
