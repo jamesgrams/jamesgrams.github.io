@@ -9,6 +9,10 @@ var SECTIONS = [
         "name": "Projects",
         "items": [
             {
+                "type": "subtitle",
+                "name": "Highlights"
+            },
+            {
                 "name": "Game 103",
                 "link": "https://game103.net",
                 "subtitles": ["https://game103.net"],
@@ -48,6 +52,10 @@ var SECTIONS = [
                 "link": "https://grams.family",
                 "subtitles": ["https://grams.family"],
                 "description": "The website of the Grams Family. Includes a family tree that generates programatically and a list of upcoming events."
+            },
+            {
+                "type": "subtitle",
+                "name": "All"
             }
         ]
     },
@@ -59,7 +67,7 @@ var SECTIONS = [
                 "link": "https://www.paviliondevelopment.com/",
                 "subtitles": ["2020-", "Pavilion Development"],
                 "image": "./images/pavilion.png",
-                "description": "\"Everything computers\" man for a small business. Built a pre-opening website for the Shepherd Hotel. Built various tools with Node.js to help with everything from creating displays of construction sites to controlling Crestron devices and Mitel phones. Worked with employees on computer and phone problems." 
+                "description": "\"Everything computers\" man for a small business. Worked on company website and developed several spinoff company sites. Developed internal project tracking software. Built various tools with Node.js to help with everything from creating displays of construction sites to finding optimal trade areas. Worked with employees on computer and phone problems. Managed Office365 for multiple tenants." 
             },
             {
                 "name": "Web Developer",
@@ -104,14 +112,34 @@ var SECTIONS = [
         "name": "Skills",
         "items": [
             {
+                "name": "Mastered Computer Languages",
+                "subtitles": [],
+                "description": "HTML, CSS, JavaScript (Node.js), SQL"
+            },
+            {
                 "name": "Known Computer Languages",
                 "subtitles": [],
-                "description": "HTML, CSS, JavaScript (Node.js, jQuery, React), Java (Tomcat, Jersey), Perl, PHP, Python, SQL, Elasticsearch, ActionScript 2 & 3"
+                "description": "HTML, CSS, JavaScript (jQuery, React), Java (Tomcat, Jersey), Perl, PHP, Python, Elasticsearch, ActionScript 2 & 3"
             },
             {
                 "name": "Familiar Computer Languages",
                 "subtitles": [],
                 "description": "C++, C#, Angular (Ionic)"
+            },
+            {
+                "name": "Networking",
+                "subtitles": [],
+                "description": "Understanding of the TCP/IP Model, Routing, Switches, DNS, DHCP, IPv6"
+            },
+            {
+                "name": "Linux",
+                "subtitles": [],
+                "description": "Extensive use of Linux and Bash with a focus on Debian-based distributions"
+            },
+            {
+                "name": "Office365",
+                "subtitles": [],
+                "description": "Experience setting up and managing Office365 tenants"
             }
         ]
     },
@@ -129,19 +157,9 @@ var SECTIONS = [
                 "description": "I've been making games since I was ten years old. I have made games with Game Maker, Flash Professional, and HTML/JavaScript/CSS for web, Windows, iOS, and Android."
             },
             {
-                "name": "Spending time with my Wife and Son",
+                "name": "Spending Time with My Wife, Son, and Daughter",
                 "subtitles": [],
                 "description": "My wife loves to go for runs, exercise, and play/compose music. My son loves to go for walks, play outside, crawl up stairs, have books read to him (especially books with pictures of children playing), play music instruments (especially maracas), be held by mom and dad, and play chase and peekaboo."
-            },
-            {
-                "name": "Playing Football",
-                "subtitles": [],
-                "description": "I played Defensive End in High School but now enjoy casually playing or just tossing the ball with a friend."
-            },
-            {
-                "name": "Playing Video Games",
-                "subtitles": [],
-                "description": "My favorites include The Legend of Zelda, Pokémon, and Mario."
             }
         ]
     },
@@ -215,18 +233,6 @@ var SECTIONS = [
                 "subtitles": ["2020-"]
             }
         ]
-    },
-    {
-        "name": "Company",
-        "items": [
-            {
-                "name": "Evenlode Development",
-                "link": "https://evenlode.dev",
-                "image": "./images/evenlode.png",
-                "subtitles": ["https://evenlode.dev"],
-                "description": "Evenlode Development is my brother and I's company. We can be hired to assist with just about anything tech-related from software development to hardware setup in your home. See our website for more details and how to contact us."
-            }
-        ]
     }
 ];
 
@@ -235,6 +241,25 @@ var timeouts = [];
 window.addEventListener("load", function() {
 
     createResume();
+
+    Promise.all([
+        fetch("https://api.github.com/users/jamesgrams/repos").then( function(data) { return data.json() } ),
+        fetch("https://api.github.com/orgs/game103/repos").then( function(data) { return data.json() } )
+    ])
+    .then( function(data) {
+        data = data.flat();
+        let items = [];
+        for( let repo of data ) {
+            if( repo.fork ) continue;
+            items.push({
+                "name": repo.name,
+                "link": repo.html_url,
+                "subtitles": [repo.html_url],
+                "description": repo.description
+            });
+        }
+        addItems( items, document.querySelector("#projects-info") );
+    });
 
 });
 
@@ -267,7 +292,7 @@ function createResume() {
         category.innerText = section.name;
         categories.appendChild(category);
 
-        category.onmouseover = function() {
+        category.onclick = function() {
             if( this.classList.contains("selected") ) return;
             
             for( var j=0; j<timeouts.length; j++ ) clearTimeout(timeouts[j]);
@@ -297,54 +322,70 @@ function createResume() {
         // create the info section
         var infoSection = document.createElement("div");
         infoSection.setAttribute("id", id + "-info");
-        for( var j=0; j<section.items.length; j++ ) {
-            var item = section.items[j];
-            
-            var itemElement = document.createElement(item.link ? "a" : "div");
-            if( item.link ) {
-                itemElement.setAttribute("href", item.link);
-                itemElement.setAttribute("target", "_blank");
-                itemElement.setAttribute("rel", "noopener");
-            }
-            itemElement.classList.add("item");
-
-            if( item.image ) {
-                var itemImage = document.createElement("img");
-                itemImage.src = item.image;
-                itemImage.setAttribute("alt",item.name);
-                itemElement.appendChild(itemImage);
-            }
-
-            var itemTitle = document.createElement("div");
-            itemTitle.classList.add("item-title");
-            itemTitle.innerText = item.name;
-            itemElement.appendChild(itemTitle);
-
-            for( var k=0; k<item.subtitles.length; k++ ) {
-                var itemSubtitle = document.createElement("div");
-                itemSubtitle.classList.add("item-subtitle");
-                itemSubtitle.innerText = item.subtitles[k];
-                itemElement.appendChild(itemSubtitle);
-            }
-
-            if( item.description ) {
-                var itemDescription = document.createElement("div");
-                itemDescription.classList.add("item-description");
-                itemDescription.innerHTML = item.description;
-                itemElement.appendChild(itemDescription);
-            }
-
-            infoSection.appendChild(itemElement);
-        }
+        addItems( section.items, infoSection );
         infoBox.appendChild(infoSection);
         
     }
 
     document.querySelector("main").appendChild(resume);
-    document.querySelector("#categories > li").onmouseover();
+    document.querySelector("#categories > li").onclick();
 
     setTimeout( function() {
         resume.classList.add("rendered");
         document.querySelector("#icons").classList.add("rendered");
     }, 0 ); // make sure this matches the css for signature time +  a little extra to distinguish from image
+}
+
+/**
+ * Add items to an info section.
+ * @param {Array<Object>} items - The items to add.
+ * @param {HTMLElement} infoSection - The Info section.
+ */
+function addItems( items, infoSection ) {
+    for( var j=0; j<items.length; j++ ) {
+        var item = items[j];
+
+        if( item.type === "subtitle" ) {
+            var subtitleElement = document.createElement("h2");
+            subtitleElement.innerText = item.name;
+            infoSection.appendChild(subtitleElement);
+            continue;
+        }
+        
+        var itemElement = document.createElement(item.link ? "a" : "div");
+        if( item.link ) {
+            itemElement.setAttribute("href", item.link);
+            itemElement.setAttribute("target", "_blank");
+            itemElement.setAttribute("rel", "noopener");
+        }
+        itemElement.classList.add("item");
+
+        if( item.image ) {
+            var itemImage = document.createElement("img");
+            itemImage.src = item.image;
+            itemImage.setAttribute("alt",item.name);
+            itemElement.appendChild(itemImage);
+        }
+
+        var itemTitle = document.createElement("div");
+        itemTitle.classList.add("item-title");
+        itemTitle.innerText = item.name;
+        itemElement.appendChild(itemTitle);
+
+        for( var k=0; k<item.subtitles.length; k++ ) {
+            var itemSubtitle = document.createElement("div");
+            itemSubtitle.classList.add("item-subtitle");
+            itemSubtitle.innerText = item.subtitles[k];
+            itemElement.appendChild(itemSubtitle);
+        }
+
+        if( item.description ) {
+            var itemDescription = document.createElement("div");
+            itemDescription.classList.add("item-description");
+            itemDescription.innerHTML = item.description;
+            itemElement.appendChild(itemDescription);
+        }
+
+        infoSection.appendChild(itemElement);
+    }
 }

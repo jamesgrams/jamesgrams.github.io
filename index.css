@@ -121,6 +121,11 @@ main {
     padding-right: 10px;
 }
 
+h2 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
 #info > div.block {
     display: grid;
 }
@@ -169,6 +174,11 @@ main {
 @media only screen and (min-width: 1200px) {
     #info > div {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    h2 {
+        grid-column-start: 1;
+        grid-column-end: 4;
     }
 }
 
