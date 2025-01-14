@@ -18,6 +18,17 @@ header {
     position: relative;
 }
 
+header #intro {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+header #intro img {
+    border-radius: 50%;
+    width: 60px;
+}
+
 h1 {
     text-align: center;
     margin: 20px 0;
@@ -146,7 +157,8 @@ h2 {
     border: 2px solid black;
     padding: 10px;
     box-sizing: border-box;
-    box-shadow: 5px 5px #123478;
+    box-shadow: 2px 2px #123478;
+    border-radius: 3px;
 }
 
 #info .item img {
@@ -192,6 +204,21 @@ h2 {
 }
 
 @media only screen and (max-width: 600px) {
+
+    header {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header #intro {
+        margin: auto;
+    }
+
+    #icons {
+        position: static;
+        margin-bottom: 10px;
+    }
     
     #resume {
         flex-direction: column;

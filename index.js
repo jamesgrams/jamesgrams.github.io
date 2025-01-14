@@ -34,23 +34,10 @@ var SECTIONS = [
                 "description": "An emulator frontend for Ubuntu that lets you to stream your games to any device with a browser on your network. It also lets you to have multiple saves for a game, and it includes a media player and web browser."
             },
             {
-                "name": "Racecourse",
-                "link": "https://github.com/jamesgrams/racecourse",
-                "subtitles": ["https://github.com/jamesgrams/racecouse"],
-                "image": "./images/racecourse.png",
-                "description": "A lightweight course manager that makes it very easy for teachers to get content to their students."
-            },
-            {
-                "name": "Spokapi",
-                "link": "https://github.com/jamesgrams/spokapi",
-                "subtitles": ["https://github.com/jamesgrams/spokapi"],
-                "image": "./images/spokapi.png",
-                "description": "Easily watch TV through Puppeteer. This program allows you to easily watch live sports and shows that you have access to with your cable provider login."
-            },
-            {
                 "name": "Grams Family Website",
                 "link": "https://grams.family",
                 "subtitles": ["https://grams.family"],
+                "image": "./images/james1.jpg",
                 "description": "The website of the Grams Family. Includes a family tree that generates programatically and a list of upcoming events."
             },
             {
@@ -63,11 +50,18 @@ var SECTIONS = [
         "name": "Experience",
         "items": [
             {
+                "name": "IT Director",
+                "link": "https://nil.systems/",
+                "subtitles": ["2022-", "NIL Management Systems"],
+                "image": "./images/nilms.png",
+                "description": "Developed patented software for managing the back office operations of NIL Collectives that generates contracts, automates fulfillment tracking, and manages payments. Implemented software for collectives at three SEC schools. Provided support and assistance for customers." 
+            },
+            {
                 "name": "IT Systems Administrator",
                 "link": "https://www.paviliondevelopment.com/",
                 "subtitles": ["2020-", "Pavilion Development"],
                 "image": "./images/pavilion.png",
-                "description": "\"Everything computers\" man for a small business. Worked on company website and developed several spinoff company sites. Developed internal project tracking software. Built various tools with Node.js to help with everything from creating displays of construction sites to finding optimal trade areas. Worked with employees on computer and phone problems. Managed Office365 for multiple tenants." 
+                "description": "Managed all technology for a small business. Developed internal project tracking software. Built various tools with Node.js to help with everything from creating displays of construction sites to finding optimal trade areas. Managed VOIP phone systems and Office365. Worked on company website and developed several spinoff company sites. Worked with employees on computer and phone problems." 
             },
             {
                 "name": "Web Developer",
@@ -157,7 +151,7 @@ var SECTIONS = [
                 "description": "I've been making games since I was ten years old. I have made games with Game Maker, Flash Professional, and HTML/JavaScript/CSS for web, Windows, iOS, and Android."
             },
             {
-                "name": "Spending Time with My Wife, Son, and Daughter",
+                "name": "Spending Time with My Wife, Son, and Two Daughters",
                 "subtitles": [],
                 "description": "My wife loves to go for runs, exercise, and play/compose music. My son loves to go for walks, play outside, crawl up stairs, have books read to him (especially books with pictures of children playing), play music instruments (especially maracas), be held by mom and dad, and play chase and peekaboo."
             }
