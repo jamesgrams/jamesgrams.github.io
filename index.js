@@ -61,7 +61,7 @@ var SECTIONS = [
                 "link": "https://www.paviliondevelopment.com/",
                 "subtitles": ["2020-", "Pavilion Development"],
                 "image": "./images/pavilion.png",
-                "description": "Managed all technology for a small business. Developed internal project tracking software. Built various tools with Node.js to help with everything from creating displays of construction sites to finding optimal trade areas. Managed VOIP phone systems and Office365. Worked on company website and developed several spinoff company sites. Worked with employees on computer and phone problems." 
+                "description": "Managed all technology for a small business. Developed internal project tracking software. Built various tools with Node.js to help with everything from creating displays of construction sites to finding optimal trade areas. Operated VOIP phone systems and Office365. Worked on company website and developed several spinoff company sites. Worked with employees on computer and phone problems." 
             },
             {
                 "name": "Web Developer",
